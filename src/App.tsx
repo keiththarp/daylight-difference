@@ -4,7 +4,6 @@ import About from './views/About/About';
 import Differentiator from './views/Differentiator/Differentiator'
 import './App.css';
 
-require("dotenv").config();
 
 function App() {
   return (
