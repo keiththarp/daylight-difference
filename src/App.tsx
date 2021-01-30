@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import About from './views/About/About';
 import Differentiator from './views/Differentiator/Differentiator'
+import CityToCoords from './components/CityToCoords'
 import './App.css';
 
 
@@ -10,8 +11,8 @@ function App() {
     <div className="App">
       <Router>
         <Switch>
+          <Route path="/" exact component={Differentiator} />
           <Route path="/about" exact component={About} />
-          <Route path="/differentiator" exact component={Differentiator} />
         </Switch>
       </Router>
     </div>

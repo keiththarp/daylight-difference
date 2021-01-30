@@ -5,9 +5,14 @@ import 'bootstrap/dist/js/bootstrap.bundle.min';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { resolve } from 'path';
+import * as dotenv from 'dotenv';
+dotenv.config({
+  path: resolve(__dirname, '../.env'),
+  debug: true
+});
 
-
-require("dotenv").config();
+require('dotenv').config();
 
 
 ReactDOM.render(
