@@ -16,7 +16,7 @@ function Differentiator(): JSX.Element {
         <h3>Enter city name for location 1</h3>
         <CityToCoords />
       </div>
-      <div>
+      <div className="mt-4">
         <h3>Enter city name for location 2</h3>
         <CityToCoords />
       </div>

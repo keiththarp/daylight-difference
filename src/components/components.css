@@ -21,3 +21,8 @@ button.city-option-button:hover {
   color: white;
   border: 1px solid white;
 }
+
+span.day-length {
+  font-size: 1.2em;
+  font-weight: bold;
+}
