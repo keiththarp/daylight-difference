@@ -46,12 +46,14 @@ function CityToCoords(): JSX.Element {
         <button onClick={findCoords}>Search</button>
         <p>Choose the correct location</p>
         {searchResults.length > 0 ?
-          <div className="border border-primary col justify-items-center align-content-center">
-            <ul className="city-list">
-              {searchResults.map(function (city: any, index: number) {
-                return <li>{city.formatted}<button key={index}>+</button></li>
-              })}
-            </ul>
+          <div className="row justify-content-center">
+            <div className="col-auto border border-primary">
+              <ul className="city-list">
+                {searchResults.map(function (city: any, index: number) {
+                  return <li><button className="city-option-button" key={index}>+</button> {city.formatted}</li>
+                })}
+              </ul>
+            </div>
           </div>
           : null}
 

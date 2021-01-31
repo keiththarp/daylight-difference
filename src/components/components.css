@@ -1,4 +1,23 @@
-.city-list {
+ul.city-list {
   list-style-position: inside;
   vertical-align: middle;
+  text-align: left;
+}
+.city-list li {
+  list-style: none;
+}
+
+button.city-option-button {
+  font-size: large;
+  border-radius: 25%;
+  border: 1px solid rgb(77, 122, 77);
+  background-color: rgb(129, 182, 129);
+  margin: 5px 10px;
+  padding: 0px 7px 3px 7px; 
+  transition-duration: 0.4s;
+}
+button.city-option-button:hover {
+  background-color: rgb(42, 85, 42);
+  color: white;
+  border: 1px solid white;
 }
