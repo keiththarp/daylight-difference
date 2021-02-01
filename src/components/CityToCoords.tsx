@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios'
+import { findCoords, callSunTimes } from '../api/api'
 // import CityOptionButton from './CityOptionButton';
 import './components.css';
 
@@ -9,31 +10,27 @@ function CityToCoords(): JSX.Element {
   const [searchResults, setSearchResults] = useState<any>([])
   const [input, setInput] = useState<string>("");
   const [searchTerm, setSearchTerm] = useState<string>("");
-  const [chosenCity, setChosenCity] = useState<string>("");
+  const [chosenCity, setChosenCity] = useState("");
+  const regex = /,(.*)/
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInput(event.currentTarget.value);
 
     setSearchTerm(event.currentTarget.value.toLowerCase())
   }
-
-  const findCoords = () => {
-    const apiUrl = `https://api.opencagedata.com/geocode/v1/json?q=${searchTerm}&key=${process.env.REACT_APP_COORDS_API_PW}`;
-    axios.get(apiUrl).then((res) => {
+  const searchHandler = () => {
+    findCoords(searchTerm).then((res) => {
       setSearchResults(res.data.results)
       setDayLength(0)
       console.log(res);
-
-    });
+    })
   }
 
-  const callSunTimes = (lat: number, lng: number) => {
-    const apiUrl = `https://api.sunrise-sunset.org/json?lat=${lat}&lng=${lng}`
-    axios.get(apiUrl).then((res) => {
+  const chosenHandler = (lat: number, lng: number) => {
+    callSunTimes(lat, lng).then((res) => {
       setDayLength(res.data.results.day_length)
       setSearchResults([])
       console.log(res.data);
-
     });
   }
 
@@ -47,7 +44,7 @@ function CityToCoords(): JSX.Element {
           value={input}
           placeholder="Search Location"
         />
-        <button onClick={findCoords}>Search</button>
+        <button onClick={searchHandler}>Search</button>
         {searchResults.length > 0
           ?
           <div className="row justify-content-center mt-2">
@@ -58,7 +55,7 @@ function CityToCoords(): JSX.Element {
                   return <li key={index}>
                     <button
                       onClick={() => {
-                        callSunTimes(city.geometry.lat, city.geometry.lng);
+                        chosenHandler(city.geometry.lat, city.geometry.lng);
                         setChosenCity(city.formatted)
                       }
                       }
@@ -73,7 +70,8 @@ function CityToCoords(): JSX.Element {
             </div>
           </div>
           : null}
-        <div>{dayLength !== 0 && <div>{chosenCity} has <span className="day-length">{dayLength}</span> of daylight.</div>}</div>
+        <div>{dayLength !== 0 && <div>{chosenCity.replace(regex, "")} has <span className="day-length">{dayLength}</span> of daylight.</div>}</div>
+        <p>{chosenCity.replace(regex, "")}</p>
 
       </div>
     </div>
