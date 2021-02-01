@@ -28,7 +28,7 @@ function CityToCoords(props: any): JSX.Element {
   const chosenHandler = (lat: number, lng: number, city: string) => {
     setChosenCity(city.replace(regex, ""))
 
-    callSunTimes(lat, lng).then((res) => {
+    callSunTimes(lat, lng, props.date).then((res) => {
       setDayLength(res.data.results.day_length)
       setSearchResults([])
       props.displayData(props.cityNumber, res.data.results.day_length, city.replace(regex, ""))

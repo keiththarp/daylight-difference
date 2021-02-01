@@ -8,8 +8,8 @@ const findCoords = (searchTerm: string) => {
   return axios.get(apiUrl);
 };
 
-const callSunTimes = (lat: number, lng: number) => {
-  const apiUrl = `https://api.sunrise-sunset.org/json?lat=${lat}&lng=${lng}`;
+const callSunTimes = (lat: number, lng: number, date: string) => {
+  const apiUrl = `https://api.sunrise-sunset.org/json?lat=${lat}&lng=${lng}&date=${date}`;
   return axios.get(apiUrl);
 }
 
