@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios'
 import { findCoords, callSunTimes } from '../api/api'
-// import CityOptionButton from './CityOptionButton';
 import './components.css';
 
 function CityToCoords(props: any): JSX.Element {
@@ -74,8 +73,6 @@ function CityToCoords(props: any): JSX.Element {
           </div>
           : null}
         <div>{dayLength !== 0 && <div>{chosenCity} has <span className="day-length">{dayLength}</span> of daylight.</div>}</div>
-
-
       </div>
     </div>
   )

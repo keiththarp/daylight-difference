@@ -48,7 +48,6 @@ function Differentiator(): JSX.Element {
   }, [daylight1, daylight2, locationData])
 
   return (
-
     <div>
       <div className="about-screen border border-primary">
         <h1>Daylight Difference Determiner</h1>
@@ -67,8 +66,6 @@ function Differentiator(): JSX.Element {
         <div className="py-3 bg-light"><DifferenceDisplayer /></div>
         : null}
     </div>
-
   )
-
 };
 export default Differentiator;
