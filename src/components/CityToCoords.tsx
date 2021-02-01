@@ -4,7 +4,7 @@ import { findCoords, callSunTimes } from '../api/api'
 // import CityOptionButton from './CityOptionButton';
 import './components.css';
 
-function CityToCoords(): JSX.Element {
+function CityToCoords(props: any): JSX.Element {
 
   const [dayLength, setDayLength] = useState(0);
   const [searchResults, setSearchResults] = useState<any>([])
@@ -26,10 +26,13 @@ function CityToCoords(): JSX.Element {
     })
   }
 
-  const chosenHandler = (lat: number, lng: number) => {
+  const chosenHandler = (lat: number, lng: number, city: string) => {
+    setChosenCity(city.replace(regex, ""))
+
     callSunTimes(lat, lng).then((res) => {
       setDayLength(res.data.results.day_length)
       setSearchResults([])
+      props.displayData(props.cityNumber, res.data.results.day_length, city.replace(regex, ""))
       console.log(res.data);
     });
   }
@@ -55,8 +58,8 @@ function CityToCoords(): JSX.Element {
                   return <li key={index}>
                     <button
                       onClick={() => {
-                        chosenHandler(city.geometry.lat, city.geometry.lng);
-                        setChosenCity(city.formatted)
+                        chosenHandler(city.geometry.lat, city.geometry.lng, city.formatted);
+
                       }
                       }
                       className="city-option-button"
@@ -70,8 +73,8 @@ function CityToCoords(): JSX.Element {
             </div>
           </div>
           : null}
-        <div>{dayLength !== 0 && <div>{chosenCity.replace(regex, "")} has <span className="day-length">{dayLength}</span> of daylight.</div>}</div>
-        <p>{chosenCity.replace(regex, "")}</p>
+        <div>{dayLength !== 0 && <div>{chosenCity} has <span className="day-length">{dayLength}</span> of daylight.</div>}</div>
+
 
       </div>
     </div>

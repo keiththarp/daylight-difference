@@ -1,9 +1,51 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import CityToCoords from '../../components/CityToCoords';
+import { DateTime } from "luxon";
 
 function Differentiator(): JSX.Element {
 
-  console.log(process.env);
+  const [locationData, setLocationData] = useState({
+    city1: "",
+    daylight1: 0,
+    city2: "",
+    daylight2: 0
+  })
+  const { city1, daylight1, city2, daylight2 } = locationData
+
+  const dataSetter = (cityNumber: number, daylight: number, cityName: string) => {
+    if (cityNumber === 1) {
+      setLocationData({
+        ...locationData,
+        city1: cityName,
+        daylight1: daylight
+      })
+    } else {
+      setLocationData({
+        ...locationData,
+        city2: cityName,
+        daylight2: daylight
+      })
+    }
+  }
+
+  const DifferenceDisplayer = () => {
+    const dl1 = daylight1.toString();
+    const dl2 = daylight2.toString();
+    const d1 = DateTime.fromISO(dl1)
+    const d2 = DateTime.fromISO(dl2)
+    const difference = d2.diff(d1, ['hours', 'minutes', 'seconds']).toFormat('hh:mm:ss')
+
+    if (daylight1 > daylight2) {
+      return <div>{city1} has {difference} more daylight than {city2}.</div>
+    } else {
+      return <div>{city2} has {difference} more daylight than {city1}.</div>
+    }
+  }
+  useEffect(() => {
+    if (daylight1 && daylight2) {
+      DifferenceDisplayer()
+    }
+  }, [daylight1, daylight2, locationData])
 
   return (
 
@@ -14,13 +56,16 @@ function Differentiator(): JSX.Element {
       </div>
       <div>
         <h3>Enter city name for location 1</h3>
-        <CityToCoords />
+        <CityToCoords displayData={dataSetter} cityNumber={1} />
       </div>
       <div className="mt-4">
         <h3>Enter city name for location 2</h3>
-        <CityToCoords />
+        <CityToCoords displayData={dataSetter} cityNumber={2} />
       </div>
-
+      {(daylight1 && daylight2)
+        ?
+        <div className="py-3 bg-light"><DifferenceDisplayer /></div>
+        : null}
     </div>
 
   )
