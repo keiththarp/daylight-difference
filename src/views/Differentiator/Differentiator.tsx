@@ -42,11 +42,12 @@ function Differentiator(): JSX.Element {
     const dl2 = daylight2.toString();
     const d1 = DateTime.fromISO(dl1)
     const d2 = DateTime.fromISO(dl2)
-    const difference = d2.diff(d1, ['hours', 'minutes', 'seconds']).toFormat('hh:mm:ss')
 
     if (daylight1 > daylight2) {
+      const difference = d1.diff(d2, ['hours', 'minutes', 'seconds']).toFormat('hh:mm:ss')
       return <div>{city1} has {difference} more daylight than {city2}.</div>
     } else {
+      const difference = d2.diff(d1, ['hours', 'minutes', 'seconds']).toFormat('hh:mm:ss')
       return <div>{city2} has {difference} more daylight than {city1}.</div>
     }
   }
