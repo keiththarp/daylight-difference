@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/daylight-difference/static/css/main.3f7426d5.chunk.css",
-    "main.js": "/daylight-difference/static/js/main.9fb9ffa9.chunk.js",
-    "main.js.map": "/daylight-difference/static/js/main.9fb9ffa9.chunk.js.map",
+    "main.js": "/daylight-difference/static/js/main.73eb9181.chunk.js",
+    "main.js.map": "/daylight-difference/static/js/main.73eb9181.chunk.js.map",
     "runtime-main.js": "/daylight-difference/static/js/runtime-main.e8ded281.js",
     "runtime-main.js.map": "/daylight-difference/static/js/runtime-main.e8ded281.js.map",
     "static/css/2.d65fdcc0.chunk.css": "/daylight-difference/static/css/2.d65fdcc0.chunk.css",
@@ -20,6 +20,6 @@
     "static/css/2.d65fdcc0.chunk.css",
     "static/js/2.f28f0fea.chunk.js",
     "static/css/main.3f7426d5.chunk.css",
-    "static/js/main.9fb9ffa9.chunk.js"
+    "static/js/main.73eb9181.chunk.js"
   ]
 }
