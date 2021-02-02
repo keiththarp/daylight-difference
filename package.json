@@ -1,6 +1,6 @@
 {
-  "name": "dayligt-difference",
-  "homepage": "https://keiththarp.github.io/daylight-difference/",
+  "name": "daylight-difference",
+  "homepage": "/daylight-difference/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
