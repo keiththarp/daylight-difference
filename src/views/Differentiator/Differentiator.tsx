@@ -2,14 +2,12 @@ import React, { useEffect, useState } from 'react';
 import CityToCoords from '../../components/CityToCoords';
 import { DateTime } from "luxon";
 
+// Set today's date for date input
 const today = DateTime.local().toFormat('yyyy-MM-dd')
 
 function Differentiator(): JSX.Element {
 
   const [date, setDate] = useState<string>(today);
-
-
-
   const [locationData, setLocationData] = useState({
     city1: "",
     daylight1: 0,
@@ -18,6 +16,7 @@ function Differentiator(): JSX.Element {
   })
   const { city1, daylight1, city2, daylight2 } = locationData
 
+  // Take in data from components and set to state
   const dataSetter = (cityNumber: number, daylight: number, cityName: string) => {
     if (cityNumber === 1) {
       setLocationData({
@@ -34,10 +33,12 @@ function Differentiator(): JSX.Element {
     }
   }
 
+  // If date is chosen update state
   const handleDateChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setDate(event.currentTarget.value);
   }
 
+  // Using luxon for time math then organizing for display
   const DifferenceDisplayer = () => {
     const dl1 = daylight1.toString();
     const dl2 = daylight2.toString();
@@ -52,6 +53,8 @@ function Differentiator(): JSX.Element {
       return <div>{city2} has {difference} more daylight than {city1}.</div>
     }
   }
+
+  // Waiting for state to update
   useEffect(() => {
     if (daylight1 && daylight2) {
       DifferenceDisplayer()

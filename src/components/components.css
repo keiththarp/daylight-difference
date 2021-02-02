@@ -2,18 +2,10 @@ ul.city-list {
   list-style-position: inside;
   vertical-align: middle;
   text-align: left;
+  padding: 0px;
 }
 .city-list li {
   list-style: none;
-}
-
-div.menu-container {
-  width: 100%;
-  max-width: 450px;
-  background-color: #219b16;
-  border-radius: 15px;
-  padding: 10px 10px;
-  margin-top: 25px;
 }
 
 button.city-option-button {
@@ -34,4 +26,13 @@ button.city-option-button:hover {
 span.day-length {
   font-size: 1.2em;
   font-weight: bold;
+}
+
+div.menu-container {
+  width: 100%;
+  max-width: 450px;
+  background-color: #219b16;
+  border-radius: 15px;
+  padding: 10px 10px;
+  margin-top: 25px;
 }

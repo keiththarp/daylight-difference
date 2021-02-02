@@ -1,6 +1,6 @@
 import React from 'react';
 
-function About(): JSX.Element {
+export default function About(): JSX.Element {
   return (
     <div>
       <div className="about-screen">
@@ -29,4 +29,3 @@ function About(): JSX.Element {
     </div>
   )
 };
-export default About;

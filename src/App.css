@@ -8,9 +8,6 @@ h3 {
 .App {
   text-align: center;
 }
-div.main-container {
-  
-}
 
 div.daylight-header {
   padding-top: 10px;
@@ -19,10 +16,6 @@ div.daylight-header {
   background-size: cover;
   min-height: 83px;
   background-position: bottom;
-}
-
-div.daylight-body {
-  background-color: #26aa19;
 }
 
 div.about-screen {
