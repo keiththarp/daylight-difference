@@ -6,7 +6,7 @@ import { faHome, faInfoCircle } from '@fortawesome/free-solid-svg-icons'
 
 export default function Menu(): JSX.Element {
   return (
-    <div className="d-flex mx-4 justify-content-around">
+    <div className="menu-container d-flex mx-4 justify-content-around">
       <div className="text-light">Daylight Difference Determiner</div>
       <div>
         <Link to='/'>
