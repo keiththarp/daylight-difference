@@ -8,7 +8,7 @@ import './App.css';
 
 function App() {
   return (
-    <div className="App col d-flex flex-column justify-content-center align-items-center">
+    <div className="App d-flex flex-column align-items-center">
       <Router basename="/daylight-difference">
         <AppHeader />
         <div className="main-container">

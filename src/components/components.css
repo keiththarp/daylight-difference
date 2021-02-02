@@ -8,7 +8,8 @@ ul.city-list {
 }
 
 div.menu-container {
-  min-width: 400px;
+  width: 100%;
+  max-width: 450px;
   background-color: #219b16;
   border-radius: 15px;
   padding: 10px 10px;
