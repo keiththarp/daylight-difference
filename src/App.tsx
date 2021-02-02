@@ -9,7 +9,7 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <Router>
+      <Router basename="/daylight-difference">
         <Switch>
           <Route path="/" exact component={Differentiator} />
           <Route path="/about" exact component={About} />
