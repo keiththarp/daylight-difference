@@ -8,6 +8,9 @@ h3 {
 .App {
   text-align: center;
 }
+div.main-container {
+  max-width: 450px;
+}
 
 div.daylight-header {
   padding-top: 10px;

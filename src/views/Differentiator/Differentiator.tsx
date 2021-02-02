@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import CityToCoords from '../../components/CityToCoords';
 import { DateTime } from "luxon";
-import AppHeader from '../../components/AppHeader';
-import Menu from '../../components/Menu'
 
 const today = DateTime.local().toFormat('yyyy-MM-dd')
 
@@ -62,7 +60,6 @@ function Differentiator(): JSX.Element {
 
   return (
     <div className="daylight-body">
-      <AppHeader />
       <div>
         <label>
           Enter a date (yyyy-mm-dd) <input
@@ -85,7 +82,6 @@ function Differentiator(): JSX.Element {
         ?
         <div className="py-3 bg-light"><DifferenceDisplayer /></div>
         : null}
-      <Menu />
     </div>
   )
 };

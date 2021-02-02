@@ -1,15 +1,8 @@
 import React from 'react';
-import AppHeader from '../../components/AppHeader';
-import Menu from '../../components/Menu'
-
 
 function About(): JSX.Element {
-
-
   return (
-
     <div>
-      <AppHeader />
       <div className="about-screen">
         <p>
           I built this app the winter of 2020/21 while hiding from COVID-19, tucked away in a quiet house in the woods near Acadia National Park.
@@ -33,10 +26,7 @@ function About(): JSX.Element {
           </ul>
         </p>
       </div>
-      <Menu />
     </div>
-
   )
-
 };
 export default About;
