@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import CityToCoords from '../../components/CityToCoords';
 import { DateTime } from "luxon";
+import AppHeader from '../../components/AppHeader';
+import Menu from '../../components/Menu'
+
 const today = DateTime.local().toFormat('yyyy-MM-dd')
 
 function Differentiator(): JSX.Element {
@@ -58,31 +61,31 @@ function Differentiator(): JSX.Element {
   }, [daylight1, daylight2, locationData])
 
   return (
-    <div>
-      <div className="about-screen border border-primary">
-        <h1>Daylight Difference Determiner</h1>
-        <p>This app determines the difference in amount of daylight time between two giving locations.</p>
+    <div className="daylight-body">
+      <AppHeader />
+      <div>
+        <label>
+          Enter a date (yyyy-mm-dd) <input
+            className="city-search-input mb-4"
+            onChange={handleDateChange}
+            value={date}
+            placeholder="YYYY-MM-DD"
+          />
+        </label>
       </div>
       <div>
-        Enter a date yyyy-mm-dd <input
-          className="city-search-input m-3"
-          onChange={handleDateChange}
-          value={date}
-          placeholder="YYYY-MM-DD"
-        />
-      </div>
-      <div>
-        <h3>Enter city name for location 1</h3>
+        <h3>City name for location 1</h3>
         <CityToCoords displayData={dataSetter} cityNumber={1} date={date} />
       </div>
       <div className="mt-4">
-        <h3>Enter city name for location 2</h3>
+        <h3>City name for location 2</h3>
         <CityToCoords displayData={dataSetter} cityNumber={2} date={date} />
       </div>
       {(daylight1 && daylight2)
         ?
         <div className="py-3 bg-light"><DifferenceDisplayer /></div>
         : null}
+      <Menu />
     </div>
   )
 };

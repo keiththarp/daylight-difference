@@ -5,7 +5,6 @@ import Differentiator from './views/Differentiator/Differentiator'
 import CityToCoords from './components/CityToCoords'
 import './App.css';
 
-
 function App() {
   return (
     <div className="App">
