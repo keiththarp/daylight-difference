@@ -2,8 +2,8 @@ import React from 'react';
 
 export default function About(): JSX.Element {
   return (
-    <div>
-      <div className="about-screen">
+    <div className="d-flex justify-content-center">
+      <div className="about-screen col-md-8 col-lg-6">
         <p>
           I built this app the winter of 2020/21 while hiding from COVID-19, tucked away in a quiet house in the woods near Acadia National Park.
           The super short winter days had me wondering how much sunlight we were missing out on compared to friends and family several hours to the south of us.
